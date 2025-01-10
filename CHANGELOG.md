@@ -1,25 +1,9 @@
 ChangeLog for Chrono
 ====================
 
-This documents all notable changes to [Chrono](https://github.com/chronotope/chrono).
-
-Chrono obeys the principle of [Semantic Versioning](http://semver.org/), with one caveat: we may
-move previously-existing code behind a feature gate and put it behind a new feature. This new
-feature will always be placed in the `previously-default` feature, which you can use to prevent
-breakage if you use `no-default-features`.
-
-There were/are numerous minor versions before 1.0 due to the language changes.
-Versions with only mechanical changes will be omitted from the following list.
-
-## 0.4.20 (unreleased)
-
-* Add more formatting documentation and examples.
-* Add support for microseconds timestamps serde serialization/deserialization (#304)
-* Fix `DurationRound` is not TZ aware (#495)
-* Implement `DurationRound` for `NaiveDateTime`
-* Add `DateTime::from_local()` to construct from given local date and time (#572)
-* Correct build for wasm32-unknown-emscripten target (#568)
-* Change `Local::now()` and `Utc::now()` documentation from "current date" to "current date and time" (#647)
+This documents notable changes to [Chrono](https://github.com/chronotope/chrono)
+up to and including version 0.4.19. For later releases, please review the
+release notes on [GitHub](https://github.com/chronotope/chrono/releases).
 
 ## 0.4.19
 
@@ -159,7 +143,7 @@ Versions with only mechanical changes will be omitted from the following list.
 
 ### Fixes
 
-* Make Datetime arithmatic adjust their offsets after discovering their new
+* Make Datetime arithmetic adjust their offsets after discovering their new
   timestamps (@quodlibetor #337)
 * Put wasm-bindgen related code and dependencies behind a `wasmbind` feature
   gate. (@quodlibetor #335)
@@ -254,7 +238,7 @@ Versions with only mechanical changes will be omitted from the following list.
 
 ### Features
 
-* New `timestamp_millis` method on `DateTime` and `NaiveDateTim` that returns
+* New `timestamp_millis` method on `DateTime` and `NaiveDateTime` that returns
   number of milliseconds since the epoch. (@quodlibetor)
 * Support exact decimal width on subsecond display for RFC3339 via a new
   `to_rfc3339_opts` method on `DateTime` (@dekellum)
@@ -615,7 +599,7 @@ and replaced by 0.2.25 very shortly. Duh.)
 
 ### Added
 
-- `Offset` is splitted into `TimeZone` (constructor) and `Offset` (storage) types.
+- `Offset` is split into `TimeZone` (constructor) and `Offset` (storage) types.
   You would normally see only the former, as the latter is mostly an implementation detail.
   Most importantly, `Local` now can be used to directly construct timezone-aware values.
 
@@ -677,7 +661,7 @@ and replaced by 0.2.25 very shortly. Duh.)
   so we simply let it go.
 
   In the case that `Time` is really required, one can use a simpler `NaiveTime`.
-  `NaiveTime` and `NaiveDate` can be freely combined and splitted,
+  `NaiveTime` and `NaiveDate` can be freely combined and split,
   and `TimeZone::from_{local,utc}_datetime` can be used to convert from/to the local time.
 
 - `with_offset` method has been removed. Use `with_timezone` method instead.
@@ -745,4 +729,3 @@ and replaced by 0.2.25 very shortly. Duh.)
 ## 0.1.0 (2014-11-20)
 
 The initial version that was available to `crates.io`.
-
